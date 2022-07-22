@@ -1,6 +1,7 @@
 #pragma once
 
 #include <optional>
+#include <string>
 #include <tuple>
 #include <vector>
 #include <type_traits>
@@ -18,6 +19,9 @@ public:
 
     template<typename T>
     [[nodiscard]] std::vector<T> readMany(MemoryStream& stream);
+
+    template<typename T> requires std::is_same_v<T, uint8_t> || std::is_same_v<T, int32_t>
+    [[nodiscard]] std::string readString(MemoryStream& stream, bool isNullTerminated = false);
 
     template<typename T> requires std::is_enum_v<T>
     [[nodiscard]] T readEnum(MemoryStream& stream);
