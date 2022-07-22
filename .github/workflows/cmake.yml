@@ -34,7 +34,7 @@ jobs:
             generator: 'Visual Studio 16 2019'
 
     steps:
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v3
 
     - if: matrix.os == 'ubuntu-20.04'
       name: Install dependencies
@@ -50,13 +50,13 @@ jobs:
       shell: 'bash'
       name: Set up GCC
       run: |
-        echo "CC=gcc-10" >> $GITHUB_ENV
-        echo "CXX=g++-10" >> $GITHUB_ENV
+        echo "CC=gcc-11" >> $GITHUB_ENV
+        echo "CXX=g++-11" >> $GITHUB_ENV
 
     - if: matrix.compiler == 'clang' && matrix.os != 'windows-latest'
       name: Cache LLVM and Clang
       id: cache-llvm
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: '${{env.llvmLocation}}'
         key: llvm-11
@@ -80,7 +80,7 @@ jobs:
       uses: lukka/get-cmake@latest
 
     - name: Build
-      uses: lukka/run-cmake@v3.4
+      uses: lukka/run-cmake@v10
       with:
         cmakeListsOrSettingsJson: CMakeListsTxtAdvanced
         buildWithCMake: true
