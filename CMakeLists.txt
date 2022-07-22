@@ -9,4 +9,9 @@ add_library(
 	src/BSP.cpp src/Decoder.cpp src/MemoryStream.cpp src/Chunks/ChunkHeader.cpp src/Chunks/ModelPart.cpp src/Primitives/Rgba.cpp src/Primitives/Vector3.cpp
 )
 target_include_directories(libbsp PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
-target_compile_options(libbsp PRIVATE -Wall -Wextra -Wpedantic)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+	target_compile_options(libbsp PRIVATE /W4)
+else()
+	target_compile_options(libbsp PRIVATE -Wall -Wextra -Wpedantic)
+endif()
