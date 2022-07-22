@@ -3,6 +3,7 @@
 #include <optional>
 #include <tuple>
 #include <vector>
+#include <type_traits>
 
 #include "libbsp/AccessOutOfBoundsException.hpp"
 #include "libbsp/MemoryStream.hpp"
@@ -17,6 +18,9 @@ public:
 
     template<typename T>
     [[nodiscard]] std::vector<T> readMany(MemoryStream& stream);
+
+    template<typename T> requires std::is_enum_v<T>
+    [[nodiscard]] T readEnum(MemoryStream& stream);
 
     template<typename T>
     [[nodiscard]] std::optional<T> readOptional(MemoryStream& stream);

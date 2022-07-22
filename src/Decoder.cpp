@@ -74,6 +74,11 @@ std::vector<T> BSPDecoder::readMany(MemoryStream& stream) {
     return elements;
 }
 
+template<typename T> requires std::is_enum_v<T>
+T BSPDecoder::readEnum(MemoryStream& stream) {
+    return read<std::underlying_type_t<T>>(stream);
+}
+
 template<typename T>
 std::optional<T> BSPDecoder::readOptional(MemoryStream& stream) {
     auto isPresent = read<int32_t>(stream);
