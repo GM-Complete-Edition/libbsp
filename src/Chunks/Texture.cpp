@@ -1,6 +1,8 @@
 #include "libbsp/Decoder.hpp"
 #include "libbsp/Chunks/Texture.hpp"
 
+namespace bsp {
+
 template<>
 Texture BSPDecoder::read(MemoryStream& stream) {
 	auto name = readString<int32_t>(stream);
@@ -31,4 +33,6 @@ Texture BSPDecoder::read(MemoryStream& stream) {
 		.borderColor = borderColor,
 		.pixels = pixels
 	};
+}
+
 }

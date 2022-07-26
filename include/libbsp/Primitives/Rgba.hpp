@@ -2,6 +2,8 @@
 
 #include <cstdint>
 
+namespace bsp {
+
 template<typename T>
 struct Rgba {
 	uint8_t r;
@@ -9,3 +11,5 @@ struct Rgba {
 	uint8_t b;
 	uint8_t a;
 };
+
+}

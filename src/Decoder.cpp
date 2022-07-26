@@ -3,6 +3,8 @@
 
 #include "libbsp/Decoder.hpp"
 
+namespace bsp {
+
 template<>
 int8_t BSPDecoder::read(MemoryStream& stream) {
     return std::bit_cast<int8_t>(stream.readByte());
@@ -196,4 +198,6 @@ std::optional<T> BSPDecoder::readOptional(MemoryStream& stream) {
 template<typename... Ts>
 std::tuple<Ts...> BSPDecoder::readTuple(MemoryStream& stream) {
     return std::tuple<Ts...>((read<Ts>(stream))...);
+}
+
 }

@@ -1,6 +1,8 @@
 #include "libbsp/Chunks/ChunkHeader.hpp"
 #include "libbsp/Decoder.hpp"
 
+namespace bsp {
+
 template<>
 ChunkHeader BSPDecoder::read(MemoryStream& stream) {
 	auto type = readEnum<ChunkType>(stream);
@@ -12,4 +14,6 @@ ChunkHeader BSPDecoder::read(MemoryStream& stream) {
 		.size = size,
 		.version = version,
 	};
+}
+
 }

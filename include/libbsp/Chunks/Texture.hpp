@@ -6,6 +6,8 @@
 
 #include "libbsp/Primitives/Rgba.hpp"
 
+namespace bsp {
+
 struct Texture {
 	std::string name;
 	std::string maskName;
@@ -17,3 +19,5 @@ struct Texture {
 	Rgba<int32_t> borderColor;
 	std::vector<Rgba<int32_t>> pixels;
 };
+
+}

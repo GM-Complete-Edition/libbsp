@@ -8,6 +8,8 @@
 #include "libbsp/Primitives/Rgba.hpp"
 #include "libbsp/Primitives/Vector3.hpp"
 
+namespace bsp {
+
 constexpr uint32_t HAS_VERTEX = 1 << 8;
 constexpr uint32_t HAS_RECIPROCAL_HOMOGENEOUS_W = 1 << 9;
 constexpr uint32_t HAS_NORMAL = 1 << 10;
@@ -56,3 +58,5 @@ struct ModelPart {
     std::vector<Vertex> vertices;
     std::vector<Index> indices;
 };
+
+}

@@ -3,6 +3,8 @@
 #include "libbsp/AccessOutOfBoundsException.hpp"
 #include "libbsp/MemoryStream.hpp"
 
+namespace bsp {
+
 MemoryStream MemoryStream::fromFile(const std::filesystem::path& filePath) {
     std::ifstream file(filePath, std::ios::binary);
     std::vector<uint8_t> fileContents((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
@@ -31,4 +33,6 @@ std::array<uint8_t, COUNT> MemoryStream::readBytes() {
     }
 
     return readBytes;
+}
+
 }

@@ -2,6 +2,8 @@
 
 #include <cstdint>
 
+namespace bsp {
+
 enum class ChunkType : int32_t {
 	GLProject = 1,
     MaterialObj = 5,
@@ -32,3 +34,5 @@ enum class ChunkType : int32_t {
     Entity = 20001,
     Textures = 20002
 };
+
+}

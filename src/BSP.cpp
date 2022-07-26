@@ -4,6 +4,8 @@
 #include "libbsp/Decoder.hpp"
 #include "libbsp/Chunks/ChunkHeader.hpp"
 
+namespace bsp {
+
 template<>
 BSP BSPDecoder::read(MemoryStream& stream) {
 	std::vector<Texture> textures;
@@ -38,4 +40,6 @@ BSP BSPDecoder::read(MemoryStream& stream) {
 		.textures = textures,
 		.modelParts = modelParts,
 	};
+}
+
 }

@@ -1,6 +1,8 @@
 #include "libbsp/Decoder.hpp"
 #include "libbsp/Primitives/Rgba.hpp"
 
+namespace bsp {
+
 template<>
 Rgba<uint8_t> BSPDecoder::read(MemoryStream& stream) {
     return Rgba<uint8_t> {
@@ -19,4 +21,6 @@ Rgba<int32_t> BSPDecoder::read(MemoryStream& stream) {
         .b = static_cast<uint8_t>(read<int32_t>(stream)),
         .a = static_cast<uint8_t>(read<int32_t>(stream))
     };
+}
+
 }

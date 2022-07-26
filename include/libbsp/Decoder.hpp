@@ -9,6 +9,8 @@
 #include "libbsp/AccessOutOfBoundsException.hpp"
 #include "libbsp/MemoryStream.hpp"
 
+namespace bsp {
+
 class BSPDecoder {
 public:
     template<typename T>
@@ -32,3 +34,5 @@ public:
     template<typename... Ts>
     [[nodiscard]] std::tuple<Ts...> readTuple(MemoryStream& stream);
 };
+
+}

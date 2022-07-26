@@ -5,6 +5,8 @@
 #include <filesystem>
 #include <vector>
 
+namespace bsp {
+
 class MemoryStream {
 private:
     std::vector<uint8_t> bytes;
@@ -31,3 +33,5 @@ private:
         return bytes[currentPosition++];
     }
 };
+
+}

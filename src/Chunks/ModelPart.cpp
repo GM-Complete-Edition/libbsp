@@ -1,6 +1,8 @@
 #include "libbsp/Decoder.hpp"
 #include "libbsp/Chunks/ModelPart.hpp"
 
+namespace bsp {
+
 template<>
 Vertex BSPDecoder::read(MemoryStream& stream, uint32_t flags) {
     std::optional<Vector3> vertex;
@@ -133,4 +135,6 @@ ModelPart BSPDecoder::read(MemoryStream& stream) {
         .vertices = vertices,
         .indices = indices,
     };
+}
+
 }
